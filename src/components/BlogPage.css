@@ -1,0 +1,21 @@
+html {
+    overflow: auto;
+}
+
+.Post {
+    margin: auto;
+    width: 50%;
+}
+
+.Title {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Author {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Paragraph {
+    text-indent: 40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
