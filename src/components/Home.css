@@ -20,11 +20,37 @@
     box-shadow: 0px 5px 10px grey;
 }
 
+@keyframes PostPreviewHover {
+    from {
+        background-color: white;
+        box-shadow: 0px 0px 0px grey;
+    }
+    to {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 3px 5px 10px grey;
+    }
+}
+
 .PostPreview {
+    user-select: none;
     width: 50%;
     margin: auto;
-    margin-bottom: 40px;
     cursor: pointer;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 7px;
+}
+
+.PostPreview:active {
+    background-color: rgb(245, 245, 245) !important;
+    box-shadow: 3px 5px 10px grey;
+}
+
+.PostPreview:hover {
+    animation-duration: .4s;
+    animation-name: PostPreviewHover; 
+    animation-fill-mode: forwards;
 }
 
 .LogInMessage {
@@ -34,4 +60,8 @@
 
 .PostTypeHeader {
     text-align: center;
+}
+
+.HomeTitle {
+    border-bottom: 1px solid black;
 }

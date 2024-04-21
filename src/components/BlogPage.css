@@ -4,18 +4,36 @@ html {
 
 .Post {
     margin: auto;
+    /*padding: 30px;*/
     width: 50%;
+    /*box-shadow: 3px 5px 10px grey;*/
 }
 
 .Title {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
 }
 
 .Author {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 15px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .Paragraph {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 15px;
     text-indent: 40px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.Banana {
+    margin: 50px;
+}
+
+.Banana>img {
+    display: block;
+    margin: auto;
 }

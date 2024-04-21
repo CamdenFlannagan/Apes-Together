@@ -12,8 +12,9 @@ function NavBar() {
             <div className="NavBar">
                 <div className="NBLink-Container">
                     <Link className="NBLink" to="/">Home</Link>
-                    <Link className="NBLink" to="/blogpage">Blog Page</Link>
-                    <Link className="NBLink">About</Link>
+                    <Link className="NBLink" to="/about">About</Link>
+                    <Link className="NBLink">Services</Link>
+                    <Link className="NBLink">FAQ</Link>
                     <Link clasaName="NBLink">Sign In</Link>
                 </div>
                 <div className="NBSearch-Container">

@@ -2,13 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import NavBar from './NavBar.js';
 import { recent, popular, tim } from './Practice_Data.js';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+
+import { timSimp, timPoem } from './Practice_Data.js';
 
 function displayPostPreviews(posts) {
   return posts.map(post => {
     return (
       <div className="PostPreview">
-        <h3>{post.title}</h3>
+        <h3 className="HomeTitle">{post.title}</h3>
         <p>{post.author}, {post.chapter}</p>
       </div>
     );
@@ -21,11 +23,19 @@ function Recent() {
     <div>
       <h2 className="PostTypeHeader">Recent Posts</h2>
       {
-        <div className="PostPreview" onClick={() => {
-          navigate('/blogpage');
-        }}>
-          <h3>{tim.title}</h3>
-          <p>{tim.author}, {tim.chapter}</p>
+        <div>
+          <div className="PostPreview" onClick={() => {
+            navigate('/blogpage', {state : {post: JSON.stringify(timSimp)}});
+          }}>
+            <h3 className="HomeTitle">{tim.title}</h3>
+            <p>{tim.author}, {tim.chapter}</p>
+          </div>
+          <div className="PostPreview" onClick={() => {
+            navigate('/blogpage', {state : {post: JSON.stringify(timPoem)}});
+          }}>
+            <h3 className="HomeTitle">What is the Good Life? Apes? No. Love.</h3>
+            <p>Tim Schill, Wheaton Chapter</p>
+          </div>
         </div>
       }
       {displayPostPreviews(recent)}
@@ -42,7 +52,7 @@ function Popular() {
         <div className="PostPreview" onClick={() => {
           navigate('/blogpage');
         }}>
-          <h3>{tim.title}</h3>
+          <h3 className="HomeTitle">{tim.title}</h3>
           <p>{tim.author}, {tim.chapter}</p>
         </div>
       }
@@ -54,7 +64,7 @@ function Popular() {
 function Following() {
   return (
     <div>
-      <p className="LogInMessage"><a href="#">Sign in</a> to follow bloggers</p>
+      <p className="LogInMessage"><Link>Sign in</Link> to follow bloggers</p>
     </div>
   );
 }
