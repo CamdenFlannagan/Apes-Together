@@ -3,6 +3,8 @@ import { useState } from 'react';
 import NavBar from './NavBar.js';
 import { recent, popular, tim } from './Practice_Data.js';
 import { useNavigate, Link } from 'react-router-dom';
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { useAuth } from '../UserContext.js';
 
 import { timSimp, timPoem } from './Practice_Data.js';
 
@@ -39,6 +41,7 @@ function Recent() {
         </div>
       }
       {displayPostPreviews(recent)}
+      <div className="LoadMore">Load More</div>
     </div>
   );
 }
@@ -50,13 +53,14 @@ function Popular() {
       <h2 className="PostTypeHeader">Popular Posts</h2>
       {
         <div className="PostPreview" onClick={() => {
-          navigate('/blogpage');
+          navigate('/blogpage', {state : {post: JSON.stringify(timSimp)}});
         }}>
           <h3 className="HomeTitle">{tim.title}</h3>
           <p>{tim.author}, {tim.chapter}</p>
         </div>
       }
       {displayPostPreviews(popular)}
+      <div className="LoadMore">Load More</div>
     </div>
   );
 }
@@ -70,8 +74,11 @@ function Following() {
 }
 
 function Home() {
-  const [ postsUIIndex, setPostsUIIndex ] = useState(0);
+  const navigate = useNavigate();
+  const [ postsUIIndex, setPostsUIIndex ] = useState(1);
   const postsUIArray = [<Recent />, <Popular />, <Following />];
+  const auth = getAuth();
+  const userId = useAuth();
 
   return (
     <div>
@@ -86,8 +93,17 @@ function Home() {
         <div className="PostsUIButton" onClick={() => {
           setPostsUIIndex(2);
         }}>Following</div>
+        <div className="PostsUIButton" onClick={() => {
+          if (userId) {
+            navigate('/newpost');
+          } else {
+            navigate('/login');
+          }
+        }}>
+        Create New Post</div>
       </div>
       {postsUIArray[postsUIIndex]}
+      {userId}
     </div>
   );
 }

@@ -77,10 +77,9 @@ const jorie2 = {
 const recent = [];
 recent.push(lebLiberal);
 recent.push(lebPresidency);
-recent.push(jorie1);
 recent.push(poetry);
 recent.push(joel);
-
+recent.push(jorie1);
 
 const popular = [];
 popular.push(joel);

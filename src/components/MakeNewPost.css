@@ -1,0 +1,68 @@
+.TitleEditorContainer {
+    width: 50%;
+    margin: auto;
+    box-shadow: 3px 5px 10px grey;
+}
+
+.TitleEditor {
+    margin: 5px;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+
+.AuthorAndChapterEditorContainer {
+    width: 50%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 5px;
+}
+
+.AuthorEditorContainer {
+    box-shadow: 3px 5px 10px grey;
+}
+
+.AuthorEditor {
+    margin: 5px;
+    padding: 5px;
+}
+
+.ChapterEditorContainer {
+    box-shadow: 3px 5px 10px grey;
+}
+
+.ChapterEditor {
+    margin: 5px;
+    padding: 5px;
+}
+.BodyEditorContainer {
+    width: 50%;
+    margin: auto;
+    box-shadow: 3px 5px 10px grey;
+}
+
+.BodyEditor {
+    margin: 5px;
+    padding: 5px;
+    min-height: 50vh;
+}
+
+.SubmitButton {
+    user-select: none;
+    margin: auto;
+    margin-top: 10px;
+    padding: 5px;
+    width: 50px;
+    border: 1px solid black;
+}
+
+.SubmitButton:hover {
+    box-shadow: 3px 5px 10px grey;
+}
+
+.SubmitButton:active {
+    box-shadow: 3px 5px 10px grey;
+    background-color: black;
+    color: white;
+}

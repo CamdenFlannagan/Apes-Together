@@ -1,8 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { getUserInfo } from '../firebase.js';
+import { useEffect, useState } from 'react';
+import { getAuth, signOut } from 'firebase/auth';
+import { useAuth } from '../UserContext.js';
 
 function NavBar() {
+    const [ userInfo, setUserInfo ] = useState(getUserInfo());
+    const userId = useAuth();
+    const navigate = useNavigate();
     return (
         <div className="TopOfPage">
             <div className="LogoAndApes">
@@ -15,7 +21,21 @@ function NavBar() {
                     <Link className="NBLink" to="/about">About</Link>
                     <Link className="NBLink">Services</Link>
                     <Link className="NBLink">FAQ</Link>
-                    <Link clasaName="NBLink">Sign In</Link>
+                    {userId ?
+                        (<div className="LogInOrOut" onClick={() => {
+                            const auth = getAuth();
+                            signOut(auth).then(() => {
+                              // Sign-out successful.
+                              console.log("succesful sign-out");
+                            }).catch((error) => {
+                              // An error happened.
+                              console.log("uh oh. sign-out unsuccesful");
+                            });
+                            window.location.reload();
+                        }}>SignOut</div>) :
+                        (<div className="LogInOrOut" onClick={() => {
+                            navigate('/login');
+                        }}>Sign In</div>)}
                 </div>
                 <div className="NBSearch-Container">
                     <input className="NBSearch" placeholder="search ALL . . ."/>
