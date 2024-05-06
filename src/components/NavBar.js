@@ -6,7 +6,6 @@ import { getAuth, signOut } from 'firebase/auth';
 import { useAuth } from '../UserContext.js';
 
 function NavBar() {
-    const [ userInfo, setUserInfo ] = useState(getUserInfo());
     const userId = useAuth();
     const navigate = useNavigate();
     return (

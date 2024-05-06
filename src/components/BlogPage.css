@@ -2,11 +2,20 @@ html {
     overflow: auto;
 }
 
+.Screen {
+    max-height: 100%;
+}
+
 .Post {
     margin: auto;
-    /*padding: 30px;*/
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 30px;
     width: 50%;
-    /*box-shadow: 3px 5px 10px grey;*/
+    box-shadow: 2px 3px 5px grey;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: scroll;
 }
 
 .Title {
@@ -15,7 +24,6 @@ html {
 }
 
 .Author {
-    width: 80%;
     margin: auto;
     margin-bottom: 15px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -20,26 +20,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
 
-const getUserInfo = () => {
-    const _auth = getAuth();
-    const userInfo = {userId: "", loggedIn: false};
-    onAuthStateChanged(_auth, (user) => {
-        if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/auth.user
-            userInfo.userId = user.uid;
-            userInfo.loggedIn = true;
-        } else {
-            // User is signed out
-            userInfo.userId = "";
-            userInfo.loggedIn = true;
-        }
-    });
-    return userInfo;
-}
-
-export { auth, provider, app, getUserInfo };
+export { auth, provider, app, db };

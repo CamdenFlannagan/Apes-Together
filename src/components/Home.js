@@ -1,10 +1,12 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import NavBar from './NavBar.js';
 import { recent, popular, tim } from './Practice_Data.js';
 import { useNavigate, Link } from 'react-router-dom';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useAuth } from '../UserContext.js';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from '../firebase.js';
 
 import { timSimp, timPoem } from './Practice_Data.js';
 
@@ -21,26 +23,35 @@ function displayPostPreviews(posts) {
 
 function Recent() {
   const navigate = useNavigate();
+  const [ postPreviewDisplay, setPostPreviewDisplay ] = useState([]);
+  const [ hasRendered, setHasRendered ] = useState(false);
+  const fetchPosts = useCallback(async () => {
+    if (hasRendered) return;
+    setHasRendered(true);
+    const postsSnapshot = await getDocs(collection(db, "blogposts"));
+    postsSnapshot.forEach(doc => {
+      postPreviewDisplay.push((
+        <div>
+          <div className="PostPreview" onClick={() => {
+            navigate('/blogpage', {state : {blogPostId: doc.id}});
+          }}>
+            <h3 className="HomeTitle">{doc.data().title}</h3>
+            <p>{doc.data().author}, {doc.data().chapter}</p>
+          </div>
+        </div>
+      ));
+    });
+    setPostPreviewDisplay([...postPreviewDisplay]);
+  }, [postPreviewDisplay, hasRendered]);
+
+  useEffect(() => {
+    fetchPosts();
+  }, [postPreviewDisplay])
+
   return (
     <div>
       <h2 className="PostTypeHeader">Recent Posts</h2>
-      {
-        <div>
-          <div className="PostPreview" onClick={() => {
-            navigate('/blogpage', {state : {post: JSON.stringify(timSimp)}});
-          }}>
-            <h3 className="HomeTitle">{tim.title}</h3>
-            <p>{tim.author}, {tim.chapter}</p>
-          </div>
-          <div className="PostPreview" onClick={() => {
-            navigate('/blogpage', {state : {post: JSON.stringify(timPoem)}});
-          }}>
-            <h3 className="HomeTitle">What is the Good Life? Apes? No. Love.</h3>
-            <p>Tim Schill, Wheaton Chapter</p>
-          </div>
-        </div>
-      }
-      {displayPostPreviews(recent)}
+        {postPreviewDisplay}
       <div className="LoadMore">Load More</div>
     </div>
   );
@@ -75,7 +86,7 @@ function Following() {
 
 function Home() {
   const navigate = useNavigate();
-  const [ postsUIIndex, setPostsUIIndex ] = useState(1);
+  const [ postsUIIndex, setPostsUIIndex ] = useState(0);
   const postsUIArray = [<Recent />, <Popular />, <Following />];
   const auth = getAuth();
   const userId = useAuth();
@@ -103,7 +114,6 @@ function Home() {
         Create New Post</div>
       </div>
       {postsUIArray[postsUIIndex]}
-      {userId}
     </div>
   );
 }

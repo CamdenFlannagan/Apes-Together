@@ -1,7 +1,14 @@
+.BoxFocusShadow {
+    border: solid 1px black;
+}
+
+.BoxFocusShadow:focus-within {
+    box-shadow: 3px 5px 10px grey;
+}
+
 .TitleEditorContainer {
     width: 50%;
     margin: auto;
-    box-shadow: 3px 5px 10px grey;
 }
 
 .TitleEditor {
@@ -16,11 +23,10 @@
     margin: auto;
     display: grid;
     grid-template-columns: 50% 50%;
-    column-gap: 5px;
 }
 
 .AuthorEditorContainer {
-    box-shadow: 3px 5px 10px grey;
+    
 }
 
 .AuthorEditor {
@@ -29,7 +35,7 @@
 }
 
 .ChapterEditorContainer {
-    box-shadow: 3px 5px 10px grey;
+   
 }
 
 .ChapterEditor {
@@ -39,7 +45,7 @@
 .BodyEditorContainer {
     width: 50%;
     margin: auto;
-    box-shadow: 3px 5px 10px grey;
+
 }
 
 .BodyEditor {
