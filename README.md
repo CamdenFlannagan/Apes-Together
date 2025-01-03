@@ -2,7 +2,7 @@
 
 Apes Together is a place for Planet of the Apes enthusiasts to come together as one. When it reaches its expected completion in 2025, members from all chapters of the Planet of the Apes Society will be able to join hands over the great World Wide Web.
 
-- Camden Flannagan, Planet of the Apes Society Wheaton Chapter
+\- Camden Flannagan, Planet of the Apes Society Wheaton Chapter
 
 ![Apes Together Home Preview](https://github.com/user-attachments/assets/246991ef-436d-486e-a167-0330ff384a04)
 
