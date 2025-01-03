@@ -50,17 +50,17 @@ const lebPresidency = {
   chapter: 'Wheaton Chapter'
 }
 
-const liberalApe = {
+/*const liberalApe = {
   title: 'Why Being Liberal Increases the Joy of Watching the Planet of the Apes Films',
   author: 'Ben Zimmerman',
   chapter: 'Wheaton Chapter'
-};
+};*/
 
-const lebLiberal = {
+/*const lebLiberal = {
   title: 'Is Leb a Liberal?: A Call to Maintain the Purity of A.L.L.',
   author: 'Ben Zimmerman',
   chapter: 'Wheaton Chapter'
-};
+};*/
 
 const jorie1 = {
   title: 'Jorie is the Best',
@@ -75,7 +75,7 @@ const jorie2 = {
 };
 
 const recent = [];
-recent.push(lebLiberal);
+//recent.push(lebLiberal);
 recent.push(lebPresidency);
 recent.push(poetry);
 recent.push(joel);
@@ -83,7 +83,7 @@ recent.push(jorie1);
 
 const popular = [];
 popular.push(joel);
-popular.push(liberalApe);
+//popular.push(liberalApe);
 popular.push(poetry);
 popular.push(lebPresidency);
 

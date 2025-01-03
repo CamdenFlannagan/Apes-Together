@@ -86,7 +86,7 @@ function Following() {
 
 function Home() {
   const navigate = useNavigate();
-  const [ postsUIIndex, setPostsUIIndex ] = useState(0);
+  const [ postsUIIndex, setPostsUIIndex ] = useState(1);
   const postsUIArray = [<Recent />, <Popular />, <Following />];
   const auth = getAuth();
   const userId = useAuth();
