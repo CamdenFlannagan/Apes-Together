@@ -5,7 +5,7 @@ import alllogo from './alllogo.png';
 function AllLogo() {
     const navigate = useNavigate();
     return (
-        <img src={require('./alllogo.png')} alt="a.l.l. logo" onClick={() => {
+        <img src={require('./Apes Together Logo.png')} alt="a.l.l. logo" onClick={() => {
             navigate('/');
         }}/>
     );

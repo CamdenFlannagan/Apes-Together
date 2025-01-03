@@ -11,7 +11,7 @@ function NavBar() {
     return (
         <div className="TopOfPage">
             <div className="LogoAndApes">
-                <img className="Logo" src={require('./alllogo.png')} alt="A.L.L. Logo"/>
+                <img className="Logo" src={require('./Apes Together Logo.png')} alt="A.L.L. Logo"/>
                 <img className="Apes" src={require('./apes-background.jpg') } alt="Clip from Planet of the Apes" />
             </div>
             <div className="NavBar">
